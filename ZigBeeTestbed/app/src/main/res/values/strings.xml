@@ -12,4 +12,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <!-- Strings related to Main Menu -->
+    <string name="action_display">Sensor Information</string>
+    <string name="action_send_message">Send Message</string>
+    <string name="title_activity_main_menu">Main Menu</string>
+    <!-- Strings related to Send Message Menu -->
+    <string name="action_on">Turn On</string>
+    <string name="action_off">Turn Off</string>
+    <string name="title_activity_send_menu">Light bulb Interaction</string>
 </resources>
