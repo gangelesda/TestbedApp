@@ -20,4 +20,22 @@
     <string name="action_on">Turn On</string>
     <string name="action_off">Turn Off</string>
     <string name="title_activity_send_menu">Light bulb Interaction</string>
+    <!-- Strings related to Display Menu -->
+    <string name="action_temp">Temperature</string>
+    <string name="action_accel">Accelerometer</string>
+    <string name="action_sound">Sound</string>
+    <string name="action_motion">Motion</string>
+    <string name="action_temp_pi">DHT22</string>
+    <string name="action_tbd_sensor">TBD</string>
+    <string name="title_display_menu">Sensors Available</string>
+    <!-- Strings related to Temperature Arduino -->
+    <string name="title_temp_arduino">Arduino\'s Temperature Sensor Information</string>
+    <!-- Strings related to Sound Sensor -->
+    <string name="title_sound">Sound Detector Information</string>
+    <!-- Strings related to Motion Sensor -->
+    <string name="title_motion">Motion Detector Information</string>
+    <!-- Strings related to Temperature Pi -->
+    <string name="title_temp_pi">Pi\'s Temperature Sensor Information</string>
+    <!-- Strings related to Accelerometer -->
+    <string name="title_accel">Accelerometer information</string>
 </resources>

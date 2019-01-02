@@ -346,6 +346,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Toast toast = Toast.makeText(context,text,duration);
                 toast.show();
             } else {
+                // Login is not part of the hard coded login credentials (To be changed, move towards an authentication system)
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }

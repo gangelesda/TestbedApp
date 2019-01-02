@@ -26,6 +26,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="89dp"
         android:layout_marginBottom="107dp"
+        android:onClick="displayMenu"
         android:text="@string/action_display"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
