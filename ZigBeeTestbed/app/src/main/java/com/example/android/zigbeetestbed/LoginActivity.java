@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -64,6 +65,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private boolean incorrect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +152,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (mAuthTask != null) {
             return;
         }
-
+        incorrect = false;
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
@@ -182,7 +184,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
-            // form field with an error.
+            // form field with an err
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
@@ -190,8 +192,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            Intent intent = new Intent(this, MainMenuActivity.class);
-            startActivity(intent);
         }
     }
 
@@ -336,7 +336,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
             showProgress(false);
-
+            Log.d("aasd",success.toString());
             if (success) {
                 //  Go to next screen
                 Context context = getApplicationContext();
@@ -345,6 +345,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //Toast for successful login
                 Toast toast = Toast.makeText(context,text,duration);
                 toast.show();
+                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                startActivity(intent);
             } else {
                 // Login is not part of the hard coded login credentials (To be changed, move towards an authentication system)
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
