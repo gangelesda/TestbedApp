@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MotionActivity">
 
+    <EditText
+        android:id="@+id/motionText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:background="@null"
+        android:inputType="none"
+        android:ellipsize="end"
+        android:cursorVisible="false"
+        android:scrollbars="vertical"
+        android:text=""
+        />
+
+
 </android.support.constraint.ConstraintLayout>

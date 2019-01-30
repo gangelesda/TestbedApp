@@ -86,7 +86,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         private void postText(String temp){
             try{
                 // url where the data will be posted
-                String postReceiverUrl = "http://ec2-34-219-240-37.us-west-2.compute.amazonaws.com/app_data.php";
+                String postReceiverUrl = "http://ec2-34-219-240-37.us-west-2.compute.amazonaws.com/t_data.php";
                 URL url = new URL(postReceiverUrl);
 
                 //Data to be sent
