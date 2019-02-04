@@ -1,6 +1,10 @@
 package com.example.android.zigbeetestbed;
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -14,16 +18,31 @@ public class Client extends AsyncTask<String, Void, String> {
     String dstAddress;
     int dstPort;
     String response = "";
-    TextView textResponse;
+    EditText textResponse;
+    Handler handler;
+    StringBuilder toUpdate;
+    private final static int MESSAGE_UPDATE_TEXT_CHILD_THREAD =1;
 
-    Client(String addr, int port, TextView textResponse) {
+    Client(String addr, int port, EditText textResponse, Handler handler, StringBuilder toUpdate) {
         dstAddress = addr;
         dstPort = port;
         this.textResponse = textResponse;
+        this.handler = handler;
+        this.toUpdate = toUpdate;
     }
 
     private void updateScreen() {
-        Log.d("Test",response);
+        Log.d("Test2", response);
+        Thread workerThread = new Thread(){
+            @Override
+            public void run(){
+                toUpdate.append(response + "\n");
+                Message message = new Message();
+                message.what = MESSAGE_UPDATE_TEXT_CHILD_THREAD;
+                handler.sendMessage(message);
+            }
+        };
+        workerThread.start();
     }
 
     @Override
