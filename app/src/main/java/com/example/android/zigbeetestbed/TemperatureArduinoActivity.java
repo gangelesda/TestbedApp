@@ -29,26 +29,38 @@ import java.util.concurrent.TimeUnit;
 
 public class TemperatureArduinoActivity extends AppCompatActivity {
 
-
+    //Create a new instance of the Async Class
     SendPostData job = new SendPostData();
 
+    //Setting up initial variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature_arduino);
+        //This editText widget will be manipulated to show the numbers
         EditText editText = findViewById(R.id.tempText);
+        //Run the async task in parallel
         job.setEdit(editText);
         job.execute("temp");
     }
 
     @Override
     public void onBackPressed() {
+        //Kill the async task when pressing the back button
         super.onBackPressed();
         job.endExecution();
     }
 
 
     //We need an Async class in order to perform networking jobs
+
+    /**
+     * SendPostData handles the networking through the use of HTTP requests
+     * Once it has gotten the correct string, it will update the visible widget to
+     * display the received value from the server.
+     * SendPostData is an Asynchronous task as it needs to run in the background, and in Android it is a necessity
+     * when dealing with networking.
+     */
     private class SendPostData extends AsyncTask<String,Void,String>{
         boolean stillOn = true;
         private  EditText editText;
@@ -124,7 +136,9 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                         sb.append(inputLine);
                         //Log.d("tcp",inputLine);
                     }
+                    //Set result to be the string gotten from the server
                     final String result  = sb.toString();
+                    //We change the editText widget to be updated every time we get a message
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

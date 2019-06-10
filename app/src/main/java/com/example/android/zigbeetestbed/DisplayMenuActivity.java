@@ -13,6 +13,11 @@ public class DisplayMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_menu);
     }
+
+    /**
+     * Each of this classes corresponds to a button on the Menu.
+     * They will start a new intent and change the screen
+     */
     public void tempDisplay(View view){
         //Intent for going to the temperature display
         Intent intent = new Intent(this,TemperatureArduinoActivity.class);
