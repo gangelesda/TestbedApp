@@ -2,13 +2,18 @@ package com.example.android.zigbeetestbed;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.os.Handler;
+
+
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.EditText;
 
+import com.jjoe64.graphview.GraphView;
+
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.io.BufferedReader;
 
@@ -25,6 +30,8 @@ import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.Calendar;
 
 
 public class TemperatureArduinoActivity extends AppCompatActivity {
@@ -39,8 +46,31 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_temperature_arduino);
         //This editText widget will be manipulated to show the numbers
         EditText editText = findViewById(R.id.tempText);
+
+
+        //Graph that we are gonna update
+        GraphView tempGraph = findViewById(R.id.TempSeries);
+        LineGraphSeries<DataPoint> tempSeries = new LineGraphSeries<>();
+        tempGraph.addSeries(tempSeries);
+
+        //Set graph bounds
+        tempGraph.getGridLabelRenderer().setHumanRounding(false);
+        tempGraph.getViewport().setMinX(0);
+        tempGraph.getViewport().setMaxX(40);
+        tempGraph.getViewport().setXAxisBoundsManual(true);
+        tempGraph.getViewport().setMinX(0);
+        tempGraph.getViewport().setMaxX(20);
+        tempGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
+        tempGraph.getViewport().setYAxisBoundsManual(true);
+        tempGraph.getViewport().setMinY(0);
+        tempGraph.getViewport().setMaxY(30);
+        tempGraph.getViewport().setScrollable(true);
+
+
         //Run the async task in parallel
         job.setEdit(editText);
+        job.setMyGraph(tempGraph);
+        job.setMySeries(tempSeries);
         job.execute("temp");
     }
 
@@ -64,10 +94,15 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
     private class SendPostData extends AsyncTask<String,Void,String>{
         boolean stillOn = true;
         private  EditText editText;
+        private GraphView myGraph;
+        private LineGraphSeries mySeries;
+        private int lastX = 0;
 
         protected void setEdit(EditText editText){
             this.editText = editText;
         }
+        protected void setMyGraph(GraphView myGraph){ this.myGraph = myGraph; }
+        protected void setMySeries(LineGraphSeries mySeries){ this.mySeries = mySeries; }
 
         @Override
         protected String doInBackground(String[] params){
@@ -138,10 +173,16 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                     }
                     //Set result to be the string gotten from the server
                     final String result  = sb.toString();
+
+
                     //We change the editText widget to be updated every time we get a message
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            //myGraph.getViewport().setMaxX(currDate.getTime());
+                            mySeries.appendData(new DataPoint(lastX++,Double.parseDouble(result)),true,40);
+                            myGraph.addSeries(mySeries);
+
                             editText.setText(editText.getText() + result + "\n");
                             editText.setSelection(editText.getText().length());
                         }

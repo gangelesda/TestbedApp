@@ -6,16 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".TemperatureArduinoActivity">
 
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/TempSeries"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tempText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/tempText"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
         android:background="@null"
-        android:inputType="none"
-        android:ellipsize="end"
         android:cursorVisible="false"
+        android:ellipsize="end"
+        android:inputType="none"
         android:scrollbars="vertical"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
         android:text=""
-        />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TempSeries" />
 </android.support.constraint.ConstraintLayout>
