@@ -27,6 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -58,8 +59,6 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         tempGraph.getViewport().setMinX(0);
         tempGraph.getViewport().setMaxX(40);
         tempGraph.getViewport().setXAxisBoundsManual(true);
-        tempGraph.getViewport().setMinX(0);
-        tempGraph.getViewport().setMaxX(20);
         tempGraph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
         tempGraph.getViewport().setYAxisBoundsManual(true);
         tempGraph.getViewport().setMinY(0);
@@ -148,7 +147,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                     postData.append('=');
                     postData.append(URLEncoder.encode(String.valueOf(param.getValue()),"UTF-8"));
                 }
-                byte[] postBytes = postData.toString().getBytes("UTF-8");
+                byte[] postBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
 
                 //Start the connection to the receiving server
                 HttpURLConnection urlConnection =(HttpURLConnection) url.openConnection();
@@ -166,7 +165,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                     //Look for any output
                     BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                     StringBuilder sb = new StringBuilder();
-                    String inputLine = null;
+                    String inputLine;
                     while((inputLine = in.readLine()) != null){
                         sb.append(inputLine);
                         //Log.d("tcp",inputLine);
@@ -180,11 +179,16 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             //myGraph.getViewport().setMaxX(currDate.getTime());
-                            mySeries.appendData(new DataPoint(lastX++,Double.parseDouble(result)),true,40);
-                            myGraph.addSeries(mySeries);
+                            try {
+                                mySeries.appendData(new DataPoint(lastX++, Double.parseDouble(result)), true, 40);
+                                myGraph.addSeries(mySeries);
 
-                            editText.setText(editText.getText() + result + "\n");
-                            editText.setSelection(editText.getText().length());
+                                editText.setText(editText.getText() + result + "\n");
+                                editText.setSelection(editText.getText().length());
+                            }
+                            catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     });
 

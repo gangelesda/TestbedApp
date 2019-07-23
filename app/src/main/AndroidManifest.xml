@@ -48,6 +48,9 @@
         <activity
             android:name=".AccelerometerActivity"
             android:label="@string/title_accel"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/register"/>
     </application>
 
 
