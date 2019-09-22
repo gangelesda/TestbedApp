@@ -1,10 +1,8 @@
 package com.example.android.zigbeetestbed;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -31,8 +29,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import java.util.Random;
-import java.util.Calendar;
 
 
 public class TemperatureArduinoActivity extends AppCompatActivity {
