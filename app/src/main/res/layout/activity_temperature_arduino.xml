@@ -17,32 +17,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/tempText"
-        app:layout_constraintTop_toBottomOf="@id/CurrentTemp"
+        app:layout_constraintTop_toBottomOf="@id/SetTemp"
         app:layout_constraintVertical_bias="0.315" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_set_temp_up"
         android:layout_width="37dp"
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
-        android:text="Up"
+        android:src="@mipmap/ic_up_arrow_foreground"
         app:layout_constraintBottom_toStartOf="@id/button_set_temp_down"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/CurrentTemp"
+        app:layout_constraintLeft_toRightOf="@id/SetTemp"
         app:layout_constraintTop_toBottomOf="@id/TempSeries" />
 
-    <Button
+
+    <ImageButton
         android:id="@+id/button_set_temp_down"
         android:layout_width="37dp"
         android:layout_height="50dp"
-        android:text="Dw"
+        android:layout_marginTop="10dp"
+        android:scaleY="-1"
+        android:src="@mipmap/ic_up_arrow_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/CurrentTemp"
+        app:layout_constraintStart_toEndOf="@id/SetTemp"
         app:layout_constraintTop_toBottomOf="@id/button_set_temp_up"
-        app:layout_constraintVertical_bias="0.081" />
-
+        app:layout_constraintVertical_bias="0.044" />
 
     <EditText
         android:id="@+id/tempText"
@@ -58,22 +60,21 @@
         android:scrollbars="vertical"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/CurrentTemp"
+        app:layout_constraintRight_toLeftOf="@id/SetTemp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TempSeries" />
 
-    <EditText
-        android:id="@+id/CurrentTemp"
+    <TextView
+        android:id="@+id/SetTemp"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="213dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:inputType="none"
-        android:text="@string/current_temp"
+        android:typeface="monospace"
+        android:textSize="23dp"
+        android:text="@string/set_temp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@id/tempText"
