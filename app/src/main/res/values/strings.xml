@@ -32,6 +32,8 @@
     <string name="title_temp_arduino">Arduino\'s Temperature Sensor Information</string>
     <string name="action_set_temp">Set Temperature</string>
     <string name="set_temp">Set Temp: \n\n %1$s F</string>
+    <string name="hint_up_temp">Hotter</string>
+    <string name="hint_down_temp">Colder</string>
     <!-- Strings related to Sound Sensor -->
     <string name="title_sound">Sound Detector Information</string>
     <!-- Strings related to Motion Sensor -->

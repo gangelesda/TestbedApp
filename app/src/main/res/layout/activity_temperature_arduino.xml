@@ -28,9 +28,9 @@
         android:src="@mipmap/ic_up_arrow_foreground"
         app:layout_constraintBottom_toStartOf="@id/button_set_temp_down"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/hint_up_temp"
         app:layout_constraintLeft_toRightOf="@id/SetTemp"
         app:layout_constraintTop_toBottomOf="@id/TempSeries" />
-
 
     <ImageButton
         android:id="@+id/button_set_temp_down"
@@ -39,6 +39,7 @@
         android:layout_marginTop="10dp"
         android:scaleY="-1"
         android:src="@mipmap/ic_up_arrow_foreground"
+        android:contentDescription="@string/hint_down_temp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -73,7 +74,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="213dp"
         android:typeface="monospace"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:text="@string/set_temp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
