@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
         android:src="@mipmap/ic_up_arrow_foreground"
-        app:layout_constraintBottom_toStartOf="@id/button_set_temp_down"
+        app:layout_constraintBottom_toBottomOf="@id/button_set_temp_down"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/hint_up_temp"
         app:layout_constraintLeft_toRightOf="@id/SetTemp"

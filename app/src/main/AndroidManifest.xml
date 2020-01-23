@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.zigbeetestbed">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -13,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
@@ -46,7 +48,7 @@
             android:name=".TemperaturePiActivity"
             android:label="@string/title_temp_pi"/>
         <activity
-            android:name=".AccelerometerActivity"
+            android:name=".DoorlockActivity"
             android:label="@string/title_accel"/>
         <activity
             android:name=".RegisterActivity"

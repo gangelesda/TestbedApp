@@ -55,7 +55,7 @@ public class SendMenuActivity extends AppCompatActivity {
         private void postText(String on){
             try{
                 // url where the data will be posted
-                String postReceiverUrl = "http://ec2-34-219-240-37.us-west-2.compute.amazonaws.com/app_receive.php";
+                String postReceiverUrl = "http://kirbyatprescott.ga/app_receive.php";
                 URL url = new URL(postReceiverUrl);
 
                 //Data to be sent

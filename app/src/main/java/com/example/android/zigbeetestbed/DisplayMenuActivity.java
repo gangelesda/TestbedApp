@@ -31,8 +31,8 @@ public class DisplayMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SoundActivity.class);
         startActivity(intent);
     }
-    public void accelDisplay(View view){
-        Intent intent = new Intent(this, AccelerometerActivity.class);
+    public void doorlockDisplay(View view){
+        Intent intent = new Intent(this, DoorlockActivity.class);
         startActivity(intent);
     }
     public void tempPiDsplay(View view){

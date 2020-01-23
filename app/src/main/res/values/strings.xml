@@ -22,7 +22,7 @@
     <string name="title_activity_send_menu">Light bulb Interaction</string>
     <!-- Strings related to Display Menu -->
     <string name="action_temp">Temperature</string>
-    <string name="action_accel">Accelerometer</string>
+    <string name="action_door">Door Lock</string>
     <string name="action_sound">Sound</string>
     <string name="action_motion">Motion</string>
     <string name="action_temp_pi">DHT22</string>
@@ -40,6 +40,19 @@
     <string name="title_motion">Motion Detector Information</string>
     <!-- Strings related to Temperature Pi -->
     <string name="title_temp_pi">Pi\'s Temperature Sensor Information</string>
-    <!-- Strings related to Accelerometer -->
-    <string name="title_accel">Accelerometer information</string>
+    <!-- Strings related to Doorlock -->
+    <string name="title_accel">Door Lock information</string>
+    <string name="pin_one">1</string>
+    <string name="pin_two">2</string>
+    <string name="pin_three">3</string>
+    <string name="pin_four">4</string>
+    <string name="pin_five">5</string>
+    <string name="pin_six">6</string>
+    <string name="pin_seven">7</string>
+    <string name="pin_eight">8</string>
+    <string name="pin_nine">9</string>
+    <string name="pin_zero">0</string>
+    <string name="pin_clear">Clear</string>
+    <string name="pin_enter">Enter</string>
+    <string name="button_lock">Denotes the state of the Lock</string>
 </resources>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DoorlockActivity">
+
+    <ImageView
+        android:id="@+id/imgLock"
+        android:contentDescription="@string/button_lock"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="30dp"
+        android:src="@android:drawable/ic_lock_lock"
+        app:layout_constraintBottom_toTopOf="@+id/lbPin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/pin_five"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btFour"
+        app:layout_constraintEnd_toStartOf="@+id/btSix"
+        app:layout_constraintStart_toEndOf="@+id/btFour"
+         />
+
+    <Button
+        android:id="@+id/btNine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pin_nine"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btEight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btEight"
+         />
+
+    <Button
+        android:id="@+id/btClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/pin_clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btZero"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSeven" />
+
+    <Button
+        android:id="@+id/btZero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/pin_zero"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btClear"
+        app:layout_constraintEnd_toStartOf="@+id/btEnter"
+        app:layout_constraintStart_toEndOf="@+id/btClear" />
+
+    <Button
+        android:id="@+id/btFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/pin_four"
+        app:layout_constraintTop_toBottomOf="@+id/btOne"
+        app:layout_constraintBottom_toTopOf="@+id/btSeven"
+        app:layout_constraintEnd_toStartOf="@+id/btFive"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pin_three"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btTwo"
+        />
+
+    <Button
+        android:id="@+id/btEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/pin_enter"
+        app:layout_constraintBaseline_toBaselineOf="@id/btClear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btZero"
+         />
+
+    <Button
+        android:id="@+id/btSeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/pin_seven"
+        app:layout_constraintTop_toBottomOf="@+id/btFour"
+        app:layout_constraintBottom_toTopOf="@+id/btClear"
+        app:layout_constraintEnd_toStartOf="@+id/btEight"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/pin_one"
+        app:layout_constraintBottom_toTopOf="@+id/btFour"
+        app:layout_constraintEnd_toStartOf="@+id/btTwo"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbPin" />
+
+    <Button
+        android:id="@+id/btEight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/pin_eight"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btSeven"
+        app:layout_constraintEnd_toStartOf="@+id/btNine"
+        app:layout_constraintStart_toEndOf="@+id/btSeven"
+         />
+
+    <Button
+        android:id="@+id/btTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/pin_two"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btOne"
+        app:layout_constraintEnd_toStartOf="@+id/btThree"
+        app:layout_constraintStart_toEndOf="@+id/btOne" />
+
+    <Button
+        android:id="@+id/btSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pin_six"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btFive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btFive"
+         />
+
+    <EditText
+        android:id="@+id/lbPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:ems="4"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberPassword"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLock" />
+
+</android.support.constraint.ConstraintLayout>
