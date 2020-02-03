@@ -35,13 +35,5 @@ public class DisplayMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DoorlockActivity.class);
         startActivity(intent);
     }
-    public void tempPiDsplay(View view){
-        Intent intent = new Intent(this, TemperaturePiActivity.class);
-        startActivity(intent);
-    }
-    public void tbdT(View view){
-        //Toast for not implemented feature
-        Toast toast = Toast.makeText(getApplicationContext(),"Feature to be implemented!",Toast.LENGTH_SHORT);
-        toast.show();
-    }
+
 }

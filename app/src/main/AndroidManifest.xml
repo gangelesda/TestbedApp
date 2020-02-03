@@ -45,9 +45,6 @@
             android:name=".SoundActivity"
             android:label="@string/title_sound"/>
         <activity
-            android:name=".TemperaturePiActivity"
-            android:label="@string/title_temp_pi"/>
-        <activity
             android:name=".DoorlockActivity"
             android:label="@string/title_accel"/>
         <activity

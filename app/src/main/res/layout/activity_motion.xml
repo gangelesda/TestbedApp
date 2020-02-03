@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MotionActivity">
 
-    <EditText
-        android:id="@+id/motionText"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:background="@null"
-        android:inputType="none"
-        android:ellipsize="end"
-        android:cursorVisible="false"
-        android:scrollbars="vertical"
-        android:text=""
-        />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/trashcan"
+        android:layout_width="329dp"
+        android:layout_height="541dp"
+        android:layout_margin="30dp"
+        android:layout_marginBottom="28dp"
+        android:src="@mipmap/trashcan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/txtTrash"
+        android:layout_width="306dp"
+        android:layout_height="63dp"
+        android:text="@string/subtitle_trash"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/trashcan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

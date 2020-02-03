@@ -24,7 +24,7 @@
     <string name="action_temp">Temperature</string>
     <string name="action_door">Door Lock</string>
     <string name="action_sound">Sound</string>
-    <string name="action_motion">Motion</string>
+    <string name="action_motion">Trash Can</string>
     <string name="action_temp_pi">DHT22</string>
     <string name="action_tbd_sensor">TBD</string>
     <string name="title_display_menu">Sensors Available</string>
@@ -37,7 +37,8 @@
     <!-- Strings related to Sound Sensor -->
     <string name="title_sound">Sound Detector Information</string>
     <!-- Strings related to Motion Sensor -->
-    <string name="title_motion">Motion Detector Information</string>
+    <string name="title_motion">Trash Can Information</string>
+    <string name="subtitle_trash">Trash Can Fullness</string>
     <!-- Strings related to Temperature Pi -->
     <string name="title_temp_pi">Pi\'s Temperature Sensor Information</string>
     <!-- Strings related to Doorlock -->
