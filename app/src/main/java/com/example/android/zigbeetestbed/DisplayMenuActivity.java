@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 public class DisplayMenuActivity extends AppCompatActivity {
 
@@ -27,8 +26,8 @@ public class DisplayMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MotionActivity.class);
         startActivity(intent);
     }
-    public void soundDisplay(View view){
-        Intent intent = new Intent(this, SoundActivity.class);
+    public void cameraDisplay(View view){
+        Intent intent = new Intent(this, CameraActivity.class);
         startActivity(intent);
     }
     public void doorlockDisplay(View view){

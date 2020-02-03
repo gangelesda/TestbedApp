@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
+        android:fullBackupContent="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,8 +43,8 @@
             android:name=".MotionActivity"
             android:label="@string/title_motion"/>
         <activity
-            android:name=".SoundActivity"
-            android:label="@string/title_sound"/>
+            android:name=".CameraActivity"
+            android:label="@string/title_camera"/>
         <activity
             android:name=".DoorlockActivity"
             android:label="@string/title_accel"/>

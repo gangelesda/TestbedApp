@@ -36,8 +36,8 @@
         android:layout_width="139dp"
         android:layout_height="106dp"
         android:layout_marginStart="6dp"
-        android:onClick="soundDisplay"
-        android:text="@string/action_sound"
+        android:onClick="cameraDisplay"
+        android:text="@string/action_camera"
         app:layout_constraintBaseline_toBaselineOf="@+id/button8"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent" />

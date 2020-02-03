@@ -23,10 +23,8 @@
     <!-- Strings related to Display Menu -->
     <string name="action_temp">Temperature</string>
     <string name="action_door">Door Lock</string>
-    <string name="action_sound">Sound</string>
+    <string name="action_camera">Camera</string>
     <string name="action_motion">Trash Can</string>
-    <string name="action_temp_pi">DHT22</string>
-    <string name="action_tbd_sensor">TBD</string>
     <string name="title_display_menu">Sensors Available</string>
     <!-- Strings related to Temperature Arduino -->
     <string name="title_temp_arduino">Arduino\'s Temperature Sensor Information</string>
@@ -34,8 +32,9 @@
     <string name="set_temp">Set Temp: \n\n %1$s F</string>
     <string name="hint_up_temp">Hotter</string>
     <string name="hint_down_temp">Colder</string>
-    <!-- Strings related to Sound Sensor -->
-    <string name="title_sound">Sound Detector Information</string>
+    <!-- Strings related to Camera -->
+    <string name="title_camera">Real Time Camera</string>
+    <string name="current_time">%1$s:%2$d:%3$d</string>
     <!-- Strings related to Motion Sensor -->
     <string name="title_motion">Trash Can Information</string>
     <string name="subtitle_trash">Trash Can Fullness</string>
