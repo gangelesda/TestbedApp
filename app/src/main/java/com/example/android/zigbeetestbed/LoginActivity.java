@@ -29,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "https://www.kirbyatprescott.ga/member/db/login.php"; //http://34.219.240.37/member/db/login.php
+    private String login_url = "http://www.kirbyatprescott.ga:5000/login"; //http://34.219.240.37/member/db/login.php
+                                                                                     //https://www.kirbyatprescott.ga/member/db/login.php
     private SessionHandler session;
 
     @Override
@@ -112,8 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                         pDialog.dismiss();
                         try {
                             //Check if user got logged in successfully
-
-                            if (response.getInt(KEY_STATUS) == 0) {
+                            if (response.getInt(KEY_STATUS) == 0){
                                 session.loginUser(username,response.getString(KEY_FULL_NAME));
                                 loadDashboard();
 

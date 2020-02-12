@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 loadDashboard();
 
                             }else if(response.getInt(KEY_STATUS) == 1){
-                                //Display error message if username is already existsing
+                                //Display error message if username is already existing
                                 etUsername.setError("Username already taken!");
                                 etUsername.requestFocus();
 
