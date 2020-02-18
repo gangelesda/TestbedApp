@@ -17,6 +17,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.CookieHandler;
+import java.net.CookieManager;
+
 public class LoginActivity extends AppCompatActivity {
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
@@ -38,9 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         session = new SessionHandler(getApplicationContext());
 
-        if(session.isLoggedIn()){
-            loadDashboard();
-        }
+        CookieManager cookieManager = new CookieManager();
+        CookieHandler.setDefault(cookieManager);
+
+        //if(session.isLoggedIn()){
+         //   loadDashboard();
+        //}
         setContentView(R.layout.activity_login);
 
         etUsername = findViewById(R.id.etLoginUsername);

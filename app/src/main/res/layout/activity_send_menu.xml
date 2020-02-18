@@ -8,27 +8,25 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="177dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="118dp"
+        android:id="@+id/btTurnOn"
+        android:layout_width="213dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="240dp"
         android:layout_marginBottom="110dp"
-        android:onClick="sendTurnOn"
         android:text="@string/action_on"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/btTurnOff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="177dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="118dp"
-        android:onClick="sendTurnOff"
+        android:id="@+id/btTurnOff"
+        android:layout_width="216dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="232dp"
         android:text="@string/action_off"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btTurnOn" />
 </android.support.constraint.ConstraintLayout>
