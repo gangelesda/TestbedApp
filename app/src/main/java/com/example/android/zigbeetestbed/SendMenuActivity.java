@@ -50,7 +50,6 @@ public class SendMenuActivity extends AppCompatActivity {
         try {
             //Populate the request parameters
             request.put(KEY_TURN, on_off);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
