@@ -8,14 +8,15 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/trashcan"
-        android:layout_width="329dp"
-        android:layout_height="541dp"
+        android:layout_width="316dp"
+        android:layout_height="499dp"
         android:layout_margin="30dp"
         android:layout_marginBottom="28dp"
         android:src="@mipmap/trashcan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/txtTrash"
         android:layout_width="306dp"
@@ -26,6 +27,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFullness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/tv_fullness"
+        app:layout_constraintBottom_toTopOf="@+id/trashcan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTrash" />
 
 
 </android.support.constraint.ConstraintLayout>

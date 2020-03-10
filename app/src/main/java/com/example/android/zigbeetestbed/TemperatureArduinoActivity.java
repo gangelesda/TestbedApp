@@ -52,8 +52,9 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
     String thermo_set_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/set";
     String thermo_get_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/status";
 
-    //Create a new instance of the Async Class
-//    SendPostData job = new SendPostData();
+    //New Instance of Async Class for background job
+    TempDataChange myChange;
+
 
     //Setting up initial variables
     @Override
@@ -107,7 +108,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         tempGraph.getViewport().setScrollable(true);
 
         // Run Graph update in Async Class
-        TempDataChange myChange = new TempDataChange(this);
+        myChange = new TempDataChange(this);
         myChange.setEdit(editText);
         myChange.setMyGraph(tempGraph);
         myChange.setMySeries(tempSeries);
@@ -150,17 +151,18 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        MySingleton.getInstance(this).addToRequestQueue(jsRequest);
     }
 
     @Override
     public void onBackPressed() {
         //Kill the async task when pressing the back button
         super.onBackPressed();
-//        job.endExecution();
+        myChange.cancel(true);
     }
 
     // Async task since we are dealing with a background job
-    private class TempDataChange extends AsyncTask <String,Void,String>{
+    private class TempDataChange extends AsyncTask <String, Void, String>{
         private EditText editText;
         private GraphView myGraph;
         private LineGraphSeries mySeries;

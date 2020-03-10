@@ -38,6 +38,7 @@
     <!-- Strings related to Motion Sensor -->
     <string name="title_motion">Trash Can Information</string>
     <string name="subtitle_trash">Trash Can Fullness</string>
+    <string name="tv_fullness">%1$s</string>
     <!-- Strings related to Temperature Pi -->
     <string name="title_temp_pi">Pi\'s Temperature Sensor Information</string>
     <!-- Strings related to Doorlock -->
