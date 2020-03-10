@@ -1,7 +1,6 @@
 package com.example.android.zigbeetestbed;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
