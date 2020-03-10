@@ -223,10 +223,10 @@ public class DoorlockActivity extends AppCompatActivity {
 
         private void updateStat(String current){
             if (current.equals("Open")){
-                doorlock.setImageResource(R.drawable.ic_lock_outline_white);
+                doorlock.setImageResource(R.drawable.ic_lock_open);
             }
             else {
-                doorlock.setImageResource(R.drawable.ic_lock_outline_white);
+                doorlock.setImageResource(R.drawable.ic_lock_lock);
             }
         }
     }

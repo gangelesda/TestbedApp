@@ -15,12 +15,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a93c1ba6-fd54-438a-8409-073a377354bc" name="Default" comment="Finished publishTemp method">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/Client.java" beforeDir="false" />
+    <list default="true" id="a93c1ba6-fd54-438a-8409-073a377354bc" name="Default" comment="Cleaned unused libraries and classes">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_lock.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_lock_alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_open.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/DoorlockActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/DoorlockActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/MotionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/MotionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/TemperatureArduinoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/TemperatureArduinoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doorlock.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doorlock.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,9 +82,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="J7AZB760X611FFA" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/LoginAndRegistration copy/LoginAndRegistration copy" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gange\StudioProjects\TestbedApp\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -249,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583802250934</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cleaned unused libraries and classes">
+      <created>1583853711205</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1583853711205</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +303,7 @@
     <MESSAGE value="Changed website URL" />
     <MESSAGE value="Send Menu Activity Restructured" />
     <MESSAGE value="Finished publishTemp method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished publishTemp method" />
+    <MESSAGE value="Cleaned unused libraries and classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned unused libraries and classes" />
   </component>
 </project>

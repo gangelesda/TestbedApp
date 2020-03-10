@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imgLock"
-        android:contentDescription="@string/button_lock"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="30dp"
-        android:src="@android:drawable/ic_lock_lock"
+        android:contentDescription="@string/button_lock"
+        android:src="@drawable/ic_lock_lock"
         app:layout_constraintBottom_toTopOf="@+id/lbPin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
