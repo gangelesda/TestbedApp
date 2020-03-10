@@ -46,11 +46,11 @@ import java.util.concurrent.TimeUnit;
 
 
 public class TemperatureArduinoActivity extends AppCompatActivity {
-    private static final String KEY_TURN = "temp";
+    private static final String KEY_TEMP = "temp";
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
-    private String thermo_set_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/set";
-    private String thermo_get_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/status";
+    String thermo_set_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/set";
+    String thermo_get_url = "http://www.kirbyatprescott.ga:5000/home/thermostat/status";
 
     //Create a new instance of the Async Class
 //    SendPostData job = new SendPostData();
@@ -83,6 +83,13 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
             }
         });
 
+        setTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                publishTemp(setTemp.getText().toString());
+            }
+        });
+
         //Graph that we are gonna update
         GraphView tempGraph = findViewById(R.id.TempSeries);
         LineGraphSeries<DataPoint> tempSeries = new LineGraphSeries<>();
@@ -99,16 +106,13 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         tempGraph.getViewport().setMaxY(100);
         tempGraph.getViewport().setScrollable(true);
 
+        // Run Graph update in Async Class
         TempDataChange myChange = new TempDataChange(this);
         myChange.setEdit(editText);
         myChange.setMyGraph(tempGraph);
         myChange.setMySeries(tempSeries);
         myChange.execute();
-        //Run the async task in parallel
-//        job.setEdit(editText);
-//        job.setMyGraph(tempGraph);
-//        job.setMySeries(tempSeries);
-//        job.execute("temp");
+
     }
 
     private void changeTemp(boolean up, TextView setTemp){
@@ -122,6 +126,32 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         }
     }
 
+    private void publishTemp(String temp){
+        JSONObject request = new JSONObject();
+        try {
+            request.put(KEY_TEMP, temp);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsRequest = new JsonObjectRequest(Request.Method.POST, thermo_set_url, request, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    if (response.getInt(KEY_STATUS) == 0) {
+                        Toast.makeText(getApplicationContext(), response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         //Kill the async task when pressing the back button
@@ -129,6 +159,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
 //        job.endExecution();
     }
 
+    // Async task since we are dealing with a background job
     private class TempDataChange extends AsyncTask <String,Void,String>{
         private EditText editText;
         private GraphView myGraph;
@@ -136,9 +167,9 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         private Context context;
         private int lastX = 0;
 
-        protected void setEdit(EditText editText){ this.editText = editText; }
-        protected void setMyGraph(GraphView myGraph){ this.myGraph = myGraph; }
-        protected void setMySeries(LineGraphSeries mySeries){ this.mySeries = mySeries; }
+        private void setEdit(EditText editText){ this.editText = editText; }
+        private void setMyGraph(GraphView myGraph){ this.myGraph = myGraph; }
+        private void setMySeries(LineGraphSeries mySeries){ this.mySeries = mySeries; }
 
         TempDataChange(Context context){
             this.context = context;
@@ -176,7 +207,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
             MySingleton.getInstance(context).addToRequestQueue(getTemp);
         }
 
-        public void updateTemp(final String newTemp){
+        private void updateTemp(final String newTemp){
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -195,147 +226,5 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
             });
         }
     }
-    //We need an Async class in order to perform networking jobs
 
-    /**
-     * SendPostData handles the networking through the use of HTTP requests
-     * Once it has gotten the correct string, it will update the visible widget to
-     * display the received value from the server.
-     * SendPostData is an Asynchronous task as it needs to run in the background, and in Android it is a necessity
-     * when dealing with networking.
-     */
-//    private class SendPostData extends AsyncTask<String,Void,String>{
-//        boolean stillOn = true;
-//        private  EditText editText;
-//        private GraphView myGraph;
-//        private LineGraphSeries mySeries;
-//        private int lastX = 0;
-//
-//        protected void setEdit(EditText editText){
-//            this.editText = editText;
-//        }
-//        protected void setMyGraph(GraphView myGraph){ this.myGraph = myGraph; }
-//        protected void setMySeries(LineGraphSeries mySeries){ this.mySeries = mySeries; }
-//
-//        @Override
-//        protected String doInBackground(String[] params){
-//            //Call function to perform in background
-//            //EditText editText = view.findViewById(R.id.tempText);
-//            while(stillOn) {
-//                postText(params[0]);
-//                try{
-//                    TimeUnit.SECONDS.sleep(1);
-//                }
-//                catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//            return "yay";
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String message){
-//            runOnUiThread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    //myGraph.getViewport().setMaxX(currDate.getTime());
-//                    try {
-//                        mySeries.appendData(new DataPoint(lastX++, Double.parseDouble(result)), true, 40);
-//                        myGraph.addSeries(mySeries);
-//
-//                        editText.setText(editText.getText() + result + "\n");
-//                        editText.setSelection(editText.getText().length());
-//                    }
-//                    catch (Exception e){
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//        }
-//
-//
-//        protected void endExecution(){
-//            stillOn = false;
-//        }
-//        // Post data to server
-//        private void postText(String temp){
-//            try{
-//                // url where the data will be posted
-//                String postReceiverUrl = "http://kirbyatprescott.ga/t_data.php";
-//                URL url = new URL(postReceiverUrl);
-//
-//                //Data to be sent
-//                Map<String,Object> params = new LinkedHashMap<>();
-//                if(temp.equals("temp"))
-//                    params.put("data","temp");
-//                //Build the data to correct format
-//                StringBuilder postData = new StringBuilder();
-//                for(Map.Entry<String,Object> param : params.entrySet()){
-//                    if(postData.length() != 0) postData.append('&');
-//                    postData.append(URLEncoder.encode(param.getKey(),"UTF-8"));
-//                    postData.append('=');
-//                    postData.append(URLEncoder.encode(String.valueOf(param.getValue()),"UTF-8"));
-//                }
-//                byte[] postBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
-//
-//                //Start the connection to the receiving server
-//                HttpURLConnection urlConnection =(HttpURLConnection) url.openConnection();
-//                try{
-//                    //Set the required parameters to send a POST request to the server
-//                    urlConnection.setRequestMethod("POST");
-//                    urlConnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-//                    urlConnection.setRequestProperty("Content-Length",String.valueOf(postBytes.length));
-//                    urlConnection.setDoOutput(true);
-//
-//                    //Send the request
-//                    OutputStream outputStream = urlConnection.getOutputStream();
-//                    outputStream.write(postBytes);
-//
-//                    //Look for any output
-//                    BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-//                    StringBuilder sb = new StringBuilder();
-//                    String inputLine;
-//                    while((inputLine = in.readLine()) != null){
-//                        sb.append(inputLine);
-//                        //Log.d("tcp",inputLine);
-//                    }
-//                    //Set result to be the string gotten from the server
-//                    final String result  = sb.toString();
-//
-//
-//                    //We change the editText widget to be updated every time we get a message
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            //myGraph.getViewport().setMaxX(currDate.getTime());
-//                            try {
-//                                mySeries.appendData(new DataPoint(lastX++, Double.parseDouble(result)), true, 40);
-//                                myGraph.addSeries(mySeries);
-//
-//                                editText.setText(editText.getText() + result + "\n");
-//                                editText.setSelection(editText.getText().length());
-//                            }
-//                            catch (Exception e){
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    });
-//
-//                    //Close connections
-//                    outputStream.close();
-//                    in.close();
-//                }
-//                catch (IOException e){
-//                    e.printStackTrace();
-//                }
-//                finally {
-//                    //Disconnect once finished
-//                    urlConnection.disconnect();
-//                }
-//            }
-//            catch (IOException e){
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }
