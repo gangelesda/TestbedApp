@@ -28,13 +28,19 @@ public class DoorlockActivity extends AppCompatActivity {
     String door_set_url = "http://www.kirbyatprescott.ga:5000/home/doorlock/action";
     String door_get_url = "http://www.kirbyatprescott.ga:5000/home/doorlock/status";
     DoorStatus ds;
-    EditText pinNumber = findViewById(R.id.lbPin);
+    EditText pinNumber;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doorlock);
+
+        pinNumber = findViewById(R.id.lbPin);
         setButtonListeners();
+
+        ImageView doorlock = findViewById(R.id.imgLock);
+        ds = new DoorStatus(this, doorlock);
+        ds.execute();
     }
 
     private void setButtonListeners(){
@@ -179,6 +185,12 @@ public class DoorlockActivity extends AppCompatActivity {
         pinNumber.setText("");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ds.cancel(true);
+    }
+
     private class DoorStatus extends AsyncTask <String, Void, String> {
         private ImageView doorlock;
         private Context context;
@@ -191,6 +203,7 @@ public class DoorlockActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             while(true){
+                if(isCancelled()) break;
                 getStat();
                 try {
                     TimeUnit.SECONDS.sleep(15);
@@ -198,6 +211,7 @@ public class DoorlockActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            return "Finished";
         }
 
         private void getStat() {

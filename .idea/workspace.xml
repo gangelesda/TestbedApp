@@ -15,13 +15,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a93c1ba6-fd54-438a-8409-073a377354bc" name="Default" comment="Cleaned unused libraries and classes">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_lock.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_lock_alpha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_lock_open.xml" afterDir="false" />
+    <list default="true" id="a93c1ba6-fd54-438a-8409-073a377354bc" name="Default" comment="Added lock icons">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/DoorlockActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/DoorlockActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/MotionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/MotionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/TemperatureArduinoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/zigbeetestbed/TemperatureArduinoActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doorlock.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doorlock.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583853711205</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added lock icons">
+      <created>1583854637870</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1583854637870</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -304,6 +313,7 @@
     <MESSAGE value="Send Menu Activity Restructured" />
     <MESSAGE value="Finished publishTemp method" />
     <MESSAGE value="Cleaned unused libraries and classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned unused libraries and classes" />
+    <MESSAGE value="Added lock icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added lock icons" />
   </component>
 </project>

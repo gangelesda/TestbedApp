@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class MotionActivity extends AppCompatActivity {
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
-    String trash_get_url = "https://www.kirbyatprescott.ga:5000/home/trashcan/status";
+    String trash_get_url = "http://www.kirbyatprescott.ga:5000/home/trashcan/status";
     TrashcanFullness tf;
 
     @Override
@@ -36,8 +36,8 @@ public class MotionActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         tf.cancel(true);
+        super.onBackPressed();
     }
 
     private class TrashcanFullness extends AsyncTask<String, Void, String>{
@@ -52,6 +52,7 @@ public class MotionActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             while(true){
+                if(isCancelled()) break;
                 getFullness();
                 try{
                     TimeUnit.SECONDS.sleep(10);
@@ -59,6 +60,7 @@ public class MotionActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            return "Finished";
         }
 
         private void getFullness(){

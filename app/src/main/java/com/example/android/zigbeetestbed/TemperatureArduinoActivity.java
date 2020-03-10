@@ -49,7 +49,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         //This editText widget will be manipulated to show the numbers
         EditText editText = findViewById(R.id.tempText);
         final TextView setTemp = findViewById(R.id.SetTemp);
-        setTemp.setText(R.string.set_temp);
+        setTemp.setText("2");
 
         //Buttons to change temperature
         ImageButton temp_up = findViewById(R.id.button_set_temp_up);
@@ -69,7 +69,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
             }
         });
 
-        setTemp.setOnClickListener(new View.OnClickListener() {
+        send_temp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 publishTemp(setTemp.getText().toString());
@@ -113,6 +113,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
     }
 
     private void publishTemp(String temp){
+        Log.d("Test","At publish");
         JSONObject request = new JSONObject();
         try {
             request.put(KEY_TEMP, temp);
@@ -164,6 +165,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             while(true){
+                if(isCancelled()) break;
                 getTemp();
                 try{
                     TimeUnit.SECONDS.sleep(5);
@@ -172,6 +174,7 @@ public class TemperatureArduinoActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            return "Finished";
         }
         private void getTemp(){
             JsonObjectRequest getTemp = new JsonObjectRequest(Request.Method.GET, thermo_get_url, null, new Response.Listener<JSONObject>() {
